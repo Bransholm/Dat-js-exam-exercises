@@ -1,6 +1,6 @@
 "use strict";
 
-Environment: `environment-02`
+//Environment: `environment-02`
 // 1. Lav en funktion der modtager `name`, `type` og `age`, opretter et `animal` objekt
 //med de tre properties, og tilføjer det til en global liste, `animals`.
 // 2. Lav en funktion der reagerer når brugeren trykker på "Create new" knappen,
@@ -19,8 +19,6 @@ function start() {
     document.querySelector("#create-form").addEventListener("submit", createAnimal);
     showAnimal();
 }
-
-
 
 function createAnimal(event) {
     event.preventDefault();
