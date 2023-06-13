@@ -9,52 +9,45 @@
 // 3. Lav en funktion der viser listen af alle animal-objekter - sorteret alfabetisk.
 //Listen opdateres hver gang brugeren opretter et nyt.
 
+
 window.addEventListener("load", start);
 
-const list = []
+const animals = []
 
 function start() {
-    console.log("Javascript");
-    
-    document.querySelector("#create-form").addEventListener("submit", createAnimal);
-    showAnimal();
+  animal("Fnubbi", "dog", 10);
+  document.querySelector("#create-form").addEventListener("submit", createAnimal);
+}
+
+function animal(name, type, age) {
+  const newAnimal = { name: name, type: type, age: age }
+  animals.push(newAnimal);
+  console.log(animals);
+  showAnimals();
 }
 
 function createAnimal(event) {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const type = form.type.value;
-    const age = form.age.value;
-    
-     const newAnimal = { name: name, type: type, age: age };
-     list.push(newAnimal);
-     showAnimal();
+  event.preventDefault();
+  const form = event.target;
+  const name = form.name.value;
+  const type = form.type.value;
+  const age = form.age.value;
+  animal(name, type, age);
 }
 
-function showAnimal() {
-    document.querySelector("tbody").innerHTML = "";
-    list.sort((a, b) => a.name.localeCompare(b.name));
-    for (const animal of list) {
-        const html =
-            `
-                    <tr>
-                        <td>${animal.name}</td>
-                        <td>${animal.type}</td>
-                        <td>${animal.age}</td>
-                    </tr>
-            `
-        document.querySelector("tbody").insertAdjacentHTML("beforeend", html);
-    }
-    }
-
-
-
-
-
-
-
-
+function showAnimals() {
+  document.querySelector
+  for (const animal of animals) {
+    const html = `
+        <tr>
+          <td>${animal.name}</td>
+          <td>${animal.type}</td>
+          <td>${animal.age}</td>
+        </tr>
+      `;
+    document.querySelector("tbody").insertAdjacentHTML("beforeend", html);
+  }
+}
 
 
 
@@ -114,3 +107,56 @@ function showAnimal() {
     //     document.querySelector("tbody").insertAdjacentHTML("beforeend", html);
     //   }
     // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// **Anden variant **
+// window.addEventListener("load", start);
+
+// const list = [];
+
+// function start() {
+//   console.log("Javascript");
+
+//   document
+//     .querySelector("#create-form")
+//     .addEventListener("submit", createAnimal);
+//   showAnimal();
+// }
+
+// function createAnimal(event) {
+//   event.preventDefault();
+//   const form = event.target;
+//   const name = form.name.value;
+//   const type = form.type.value;
+//   const age = form.age.value;
+
+//   const newAnimal = { name: name, type: type, age: age };
+//   list.push(newAnimal);
+//   showAnimal();
+// }
+
+// function showAnimal() {
+//   document.querySelector("tbody").innerHTML = "";
+//   list.sort((a, b) => a.name.localeCompare(b.name));
+//   for (const animal of list) {
+//     const html = `
+//                     <tr>
+//                         <td>${animal.name}</td>
+//                         <td>${animal.type}</td>
+//                         <td>${animal.age}</td>
+//                     </tr>
+//             `;
+//     document.querySelector("tbody").insertAdjacentHTML("beforeend", html);
+//   }
+// }
